@@ -1,26 +1,29 @@
 /* Ejercicio 1 Objetos II */
 
-var objeto = {
-
-    inicio: 1,
-    fin: 10
-}
-
 
 function suma(numInicial, numFinal) {
-    var arrObjeto = [];
-    arrObjeto.push(numInicial, 2, 3, 4, 5, 6, 7, 8, 9, numFinal);
+  var objeto = {
+
+      inicio: 1,
+      fin: 10
+  }
     var resultado = 0;
-    for (var i = 0; i < arrObjeto.length; i++) {
-        resultado += arrObjeto[i];
-
+    if(objeto.inicio < objeto.fin){
+    for(var i = objeto.inicio; i <= objeto.fin; i++)
+    {
+      respuesta += i;
     }
+  } else {
+    for(var i = objeto.fin; i <= objeto.inicio; i++)
+    { 
+      respuesta += i;
+    }
+  }
 
-    return resultado;
-
+  return respuesta;
 }
 
-return suma(objeto.inicio, objeto.fin);
+//return suma(objeto.inicio, objeto.fin);
 
 
 /* Ejercicio 2 Objetos II */
@@ -50,6 +53,8 @@ function datosCoder(nombre, edad, ocupacion, genero) {
 var coderMensaje = new Coder("Tamara", 22, "Estudiante Laboratoria", "Femenino");
 
 return datosCoder(coderMensaje.mensaje);
+
+
 
 /* Ejercicio 3 Objetos II*/
 
@@ -105,8 +110,8 @@ return paciente.fichaPaciente();
 
 var assert = require("assert");
 describe("Suma valores de un objeto",function(){
-   it("Probando con este Objeto{inicio: 1, fin: 10}",function(){
-   assert.equal(55, multisuma(1, 10));
+   it("Probando con 1 y 10",function(){
+   assert.equal(55, suma(1, 10));
    })
 });
 
@@ -116,5 +121,23 @@ describe("Suma valores de un objeto",function(){
  describe("Retornar un mensaje segun la edad",function(){
     it("Probando con estos datos: Tamara, 22, Estudiante Laboratoria, Femenino",function(){
     assert.equal("You are Awesome!!", datosCoder(22));
+    })
+ });
+
+ //Pruebas unitarias ejercicio 3
+
+ var assert = require("assert");
+ describe("Concatenar un objeto",function(){
+    it("Probando con este objeto texto = {propiedad1: 6,propiedad2: 5,propiedad3: 4,propiedad4: 3,propiedad5: 2,propiedad6: 1,}",function(){
+    assert.equal("propiedad1 -> 6;propiedad2 -> 5;propiedad3 -> 4;propiedad4 -> 3;propiedad5 -> 2;propiedad6 -> 1", concatenar([6, 5, 4, 3, 2, 1]));
+    })
+ });
+
+ //Pruebas unitarias ejercicio 4
+
+ var assert = require("assert");
+ describe("REtorna una propiedad del objeto",function(){
+    it("Probando con este objeto paciente = new clinicaLab(Blanca, Perez, 23, Femenino, Santiago, Chile)",function(){
+    assert.equal("Nombre: Blanca", "Perez Edad: 23" ,"Pais: Chile", paciente.fichaPaciente());
     })
  });
