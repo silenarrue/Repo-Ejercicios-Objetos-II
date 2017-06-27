@@ -20,7 +20,7 @@ function suma(numInicial, numFinal) {
 
 }
 
-document.write(suma(objeto.inicio, objeto.fin));
+return suma(objeto.inicio, objeto.fin);
 
 
 /* Ejercicio 2 Objetos II */
@@ -49,7 +49,7 @@ function datosCoder(nombre, edad, ocupacion, genero) {
 
 var coderMensaje = new Coder("Tamara", 22, "Estudiante Laboratoria", "Femenino");
 
-document.write(datosCoder(coderMensaje.mensaje));
+return datosCoder(coderMensaje.mensaje);
 
 /* Ejercicio 3 Objetos II*/
 
@@ -78,7 +78,7 @@ function concatenar(arr) {
     return resultado.slice(0, -1);
 }
 
-console.log(concatenar(arr));
+return concatenar(arr);
 
 /* Ejercicio 4 Objetos II*/
 
@@ -98,4 +98,23 @@ function clinicaLab(nombre, apellido, edad, genero, ciudad, pais) {
 
 var paciente = new clinicaLab("Blanca", "Perez", 23, "Femenino", "Santiago", "Chile");
 
-document.write(paciente.fichaPaciente());
+return paciente.fichaPaciente();
+
+
+//Pruebas unitarias ejercicio 1
+
+var assert = require("assert");
+describe("Suma valores de un objeto",function(){
+   it("Probando con este Objeto{inicio: 1, fin: 10}",function(){
+   assert.equal(55, multisuma(1, 10));
+   })
+});
+
+ //Pruebas unitarias ejercicio 2
+
+ var assert = require("assert");
+ describe("Retornar un mensaje segun la edad",function(){
+    it("Probando con estos datos: Tamara, 22, Estudiante Laboratoria, Femenino",function(){
+    assert.equal("You are Awesome!!", datosCoder(22));
+    })
+ });
